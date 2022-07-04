@@ -1,19 +1,18 @@
 const header = {
   // all the properties are optional - can be left empty or deleted
-  homepage: 'https://rajshekhar26.github.io/cleanfolio',
-  title: 'JS.',
+  homepage: 'devsecopstutorials.com',
+  title: 'Cloud Native Security.',
 }
 
 const about = {
   // all the properties are optional - can be left empty or deleted
-  name: 'John Smith',
-  role: 'Front End Engineer',
+  name: 'Getting started with Kubernetes and DevSecOps',
   description:
-    'Adipisicing sit fugit ullam unde aliquid sequi Facilis soluta facilis perspiciatis corporis nulla aspernatur. Autem eligendi rerum delectus modi quisquam? Illo ut quasi nemo ipsa cumque perspiciatis! Maiores minima consectetur.',
-  resume: 'https://example.com',
+    'This page provides an overview of Kubernetes & DevSecOps tutorials that are listed on the cloud native security GitHub repository. Please contribute and propose changes, we would love to see your imput.',
+  contact: 'https://devops.anaisurl.com/contact',
   social: {
-    linkedin: 'https://linkedin.com',
-    github: 'https://github.com',
+    twitter: 'https://twitter.com/urlichsanais',
+    github: 'https://github.com/cloud-native-security',
   },
 }
 
@@ -21,51 +20,52 @@ const projects = [
   // projects can be added an removed
   // if there are no projects, Projects section won't show up
   {
-    name: 'Project 1',
+    name: 'Kubernetes beginner',
     description:
-      'Amet asperiores et impedit aliquam consectetur? Voluptates sed a nulla ipsa officia et esse aliquam',
-    stack: ['SASS', 'TypeScript', 'React'],
-    sourceCode: 'https://github.com',
-    livePreview: 'https://github.com',
+      'Get started with Kubernetes.',
+    stack: ['Kubernetes', 'beginner', 'cloud native', 'Helm'],
+    sourceCode: 'https://github.com/Cloud-Native-Security/kubernetes-starter',
+    livePreview: 'https://github.com/Cloud-Native-Security/kubernetes-starter',
   },
   {
-    name: 'Project 2',
+    name: 'cloud native security',
     description:
-      'Amet asperiores et impedit aliquam consectetur? Voluptates sed a nulla ipsa officia et esse aliquam',
-    stack: ['SASS', 'TypeScript', 'React'],
-    sourceCode: 'https://github.com',
-    livePreview: 'https://github.com',
+      'Get started with cloud native security.',
+    stack: ['Security', 'cloud native', 'Kubernetes'],
+    sourceCode: 'https://github.com/Cloud-Native-Security/cloud-native-security-starter',
+    livePreview: 'https://github.com/Cloud-Native-Security/cloud-native-security-starter',
   },
   {
-    name: 'Project 3',
+    name: 'Security Scanning',
     description:
-      'Amet asperiores et impedit aliquam consectetur? Voluptates sed a nulla ipsa officia et esse aliquam',
-    stack: ['SASS', 'TypeScript', 'React'],
-    sourceCode: 'https://github.com',
-    livePreview: 'https://github.com',
+      'Demo to get started with security scanning, specifically Trivy -- the cloud native, open source security scanner.',
+    stack: ['ebpf', 'Security'],
+    sourceCode: 'https://github.com/Cloud-Native-Security/trivy-demo',
+    livePreview: 'https://github.com/Cloud-Native-Security/trivy-demo',
+  },
+  {
+    name: 'awesome-ebpf',
+    description:
+      'A collection of ebpf resources.',
+    stack: ['ebpf', 'Security'],
+    sourceCode: 'https://github.com/Cloud-Native-Security/awesome-ebpf',
+    livePreview: 'https://github.com/Cloud-Native-Security/awesome-ebpf',
   },
 ]
 
 const skills = [
   // skills can be added or removed
   // if there are no skills, Skills section won't show up
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'TypeScript',
-  'React',
-  'Redux',
-  'SASS',
-  'Material UI',
-  'Git',
-  'CI/CD',
-  'Jest',
-  'Enzyme',
+  'Kubernetes',
+  'beginner',
+  'Helm',
+  'cloud native',
+  'ebpf',
 ]
 
 const contact = {
   // email is optional - if left empty Contact section won't show up
-  email: 'johnsmith@mail.com',
+  email: '',
 }
 
 export { header, about, projects, skills, contact }

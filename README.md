@@ -42,7 +42,7 @@ yarn start
 
 - Open `public/index.html` and replace -
 
-`<title>John Smith</title>` with `<title>Your Name</title>`.
+`<title>Cloud Native Security</title>` with `<title>Your Name</title>`.
 
 - Open `src/portfolio.js` and make changes.
 
