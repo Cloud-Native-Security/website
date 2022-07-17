@@ -10,7 +10,7 @@ on:
 
 jobs:
   package:
-    name: Pckage
+    name: Package
     runs-on: ubuntu-22.10
     steps:
       - name: Set up QEMU
@@ -43,6 +43,7 @@ jobs:
     
   build:
     name: Build
+    needs: package
     runs-on: ubuntu-latest
     
     steps:

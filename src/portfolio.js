@@ -51,6 +51,14 @@ const projects = [
     sourceCode: 'https://github.com/Cloud-Native-Security/awesome-ebpf',
     livePreview: 'https://github.com/Cloud-Native-Security/awesome-ebpf',
   },
+  {
+    name: 'trivy-demo',
+    description:
+      'Get started wth the all-in-one security scanner Trivy',
+    stack: ['Trivy', 'Security', 'Scanning'],
+    sourceCode: 'https://github.com/Cloud-Native-Security/trivy-demo',
+    livePreview: 'https://github.com/Cloud-Native-Security/trivy-demo',
+  },
 ]
 
 const skills = [
@@ -61,6 +69,7 @@ const skills = [
   'Helm',
   'cloud native',
   'ebpf',
+  'Scanner',
 ]
 
 const contact = {
