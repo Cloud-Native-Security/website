@@ -1,0 +1,79 @@
+name: vulnerability-scan
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '23 1 * * *' # Every day at 01:23
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+jobs:
+  scan:
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: read
+    outputs:
+      scan-digest: ${{ steps.calculate-scan-hash.outputs.scan_digest }}
+    steps:
+    - name: Scan for vulnerabilities
+      uses: aquasecurity/trivy-action@1db49f532692e649dc5dc43c7c0444dac4790137 # v0.7.0 (Trivy v0.31.2)
+      with: 
+        image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+        format: cosign-vuln
+        ignore-unfixed: true
+        output: scan.json
+
+    - name: Calculate scan file hash
+      id: calculate-scan-hash
+      run: |
+        SCAN_DIGEST=$(sha256sum scan.json | awk '{print $1}')
+        echo "::set-output name=scan_digest::$SCAN_DIGEST"
+        echo "Hash of scan.json is: $SCAN_DIGEST"        
+
+    - name: Upload vulnerability scan report
+      uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # v3.1.0
+      with:
+        name: scan.json
+        path: scan.json
+        if-no-files-found: error
+
+  attest:
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+      actions: read
+      packages: write
+      id-token: write
+    env:
+      SCAN_DIGEST: "${{ needs.scan.outputs.scan-digest }}"
+    needs: scan
+    steps:
+    - name: Download scan
+      uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # v3.0.0
+      with:
+        name: scan.json
+
+    - name: Verify scan
+      run: |
+        set -euo pipefail
+        echo "Hash of scan.json should be: $SCAN_DIGEST"
+        COMPUTED_HASH=$(sha256sum scan.json | awk '{print $1}')
+        echo "The current computed hash for scan.json is: $COMPUTED_HASH"
+        echo "If the two above hashes don't match, scan.json has been tampered with."
+        echo "$SCAN_DIGEST scan.json" | sha256sum --strict --check --status || exit -2        
+
+    - name: Install Cosign
+      uses: sigstore/cosign-installer@09a077b27eb1310dcfb21981bee195b30ce09de0 # v2.5.0
+      with:
+        cosign-release: v1.10.0
+
+    - name: Log in to GHCR
+      uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b # v2.0.0
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Attest Scan
+      run: cosign attest --replace --predicate scan.json --type vuln ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      env:
+        COSIGN_EXPERIMENTAL: "true"
