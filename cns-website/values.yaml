@@ -6,9 +6,8 @@ replicaCount: 1
 
 image:
   repository: anaisurlichs/cns-website
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
   tag: 0.0.6
+  pullPolicy: IfNotPresent
 
 imagePullSecrets: []
 nameOverride: ""
