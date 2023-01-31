@@ -8,11 +8,6 @@ image:
   repository: anaisurlichs/cns-website
   tag: 0.0.7
   pullPolicy: IfNotPresent
-<<<<<<< HEAD
-=======
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: 0.0.7
->>>>>>> ee60e7c (gh pipeline edit)
 
 imagePullSecrets: []
 nameOverride: ""
