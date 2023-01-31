@@ -1,6 +1,6 @@
 const header = {
   // all the properties are optional - can be left empty or deleted
-  homepage: 'devsecopstutorials.com',
+  homepage: 'https://devsecopstutorials.com/',
   title: 'Cloud Native Security.',
 }
 
