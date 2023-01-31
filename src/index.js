@@ -2,10 +2,13 @@ import { render } from 'react-dom'
 import App from './App'
 import { ThemeProvider } from './contexts/theme'
 import './index.css'
+import {SkillsProvider} from "./contexts/skills";
 
 render(
-  <ThemeProvider>
-    <App />
-  </ThemeProvider>,
-  document.getElementById('root')
+    <ThemeProvider>
+        <SkillsProvider>
+            <App />
+        </SkillsProvider>
+    </ThemeProvider>,
+    document.getElementById('root')
 )

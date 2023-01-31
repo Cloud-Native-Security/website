@@ -25,7 +25,7 @@ const projects = [
       'Get started with Kubernetes.',
     stack: ['Kubernetes', 'beginner', 'cloud native', 'Helm'],
     sourceCode: 'https://github.com/Cloud-Native-Security/kubernetes-starter',
-    livePreview: 'https://github.com/Cloud-Native-Security/kubernetes-starter',
+    // livePreview: 'https://github.com/Cloud-Native-Security/kubernetes-starter',
   },
   {
     name: 'cloud native security',
@@ -33,7 +33,7 @@ const projects = [
       'Get started with cloud native security.',
     stack: ['Security', 'cloud native', 'Kubernetes'],
     sourceCode: 'https://github.com/Cloud-Native-Security/cloud-native-security-starter',
-    livePreview: 'https://github.com/Cloud-Native-Security/cloud-native-security-starter',
+    // livePreview: 'https://github.com/Cloud-Native-Security/cloud-native-security-starter',
   },
   {
     name: 'Security Scanning',
@@ -41,7 +41,7 @@ const projects = [
       'Demo to get started with security scanning, specifically Trivy -- the cloud native, open source security scanner.',
     stack: ['ebpf', 'Security'],
     sourceCode: 'https://github.com/Cloud-Native-Security/trivy-demo',
-    livePreview: 'https://github.com/Cloud-Native-Security/trivy-demo',
+    // livePreview: 'https://github.com/Cloud-Native-Security/trivy-demo',
   },
   {
     name: 'awesome-ebpf',
@@ -49,7 +49,7 @@ const projects = [
       'A collection of ebpf resources.',
     stack: ['ebpf', 'Security'],
     sourceCode: 'https://github.com/Cloud-Native-Security/awesome-ebpf',
-    livePreview: 'https://github.com/Cloud-Native-Security/awesome-ebpf',
+    // livePreview: 'https://github.com/Cloud-Native-Security/awesome-ebpf',
   },
   {
     name: 'trivy-demo',
@@ -57,20 +57,11 @@ const projects = [
       'Get started wth the all-in-one security scanner Trivy',
     stack: ['Trivy', 'Security', 'Scanning'],
     sourceCode: 'https://github.com/Cloud-Native-Security/trivy-demo',
-    livePreview: 'https://github.com/Cloud-Native-Security/trivy-demo',
+    // livePreview: 'https://github.com/Cloud-Native-Security/trivy-demo',
   },
 ]
 
-const skills = [
-  // skills can be added or removed
-  // if there are no skills, Skills section won't show up
-  'Kubernetes',
-  'beginner',
-  'Helm',
-  'cloud native',
-  'ebpf',
-  'Scanner',
-]
+const skills = [...new Set(projects.map((project) => project.stack).flat())]
 
 const contact = {
   // email is optional - if left empty Contact section won't show up
