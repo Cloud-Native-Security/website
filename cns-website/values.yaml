@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: anaisurlichs/cns-website
-  tag: 0.0.7
+  tag: 0.1.1
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
