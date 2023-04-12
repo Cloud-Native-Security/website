@@ -6,12 +6,16 @@ FROM node:19-alpine as build-deps
 WORKDIR /usr/src/app
 
 # Copies package.json and package-lock.json to Docker environment
-COPY ./ ./
+COPY package*.json ./
+
+RUN ls
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
  
 # Installs all node packages
 RUN yarn install
+
+COPY ./ ./
 
 # Installs all node packages
 RUN yarn build
