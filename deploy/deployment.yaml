@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  cns-wesbite
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run:  cns-wesbite
+  template:
+    metadata:
+      labels:
+        run:  cns-wesbite
+    spec:
+      containers:
+      - name: cns-wesbite
+        image: docker.io/anaisurlichs/cns-website:0.0.9
+        ports:
+          - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: 200m
+        securityContext:
+          allowPrivilegeEscalation: false

@@ -17,10 +17,7 @@ RUN yarn install
 RUN yarn build
 
 # the base image 
-FROM nginx:1.23.3-alpine
-
-# Change default port
-ENV NGINX_PORT=8080
+FROM nginx:1.24-alpine
 
 # Set working directory to nginx asset directory
 WORKDIR /usr/share/nginx/html
@@ -29,7 +26,7 @@ WORKDIR /usr/share/nginx/html
 COPY --from=build-deps /usr/src/app/build .
 
 ## Expose Port
-EXPOSE 8080
+EXPOSE 80
 
 # Containers run nginx with global directives and daemon off
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
