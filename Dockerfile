@@ -6,7 +6,7 @@ FROM node:19-alpine as build-deps
 WORKDIR /usr/src/app
 
 # Copies package.json and package-lock.json to Docker environment
-COPY ./ .
+COPY ./ ./
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
  
