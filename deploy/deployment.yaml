@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  cns-wesbite
+  name:  cns-website
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run:  cns-wesbite
+      run:  cns-website
   template:
     metadata:
       labels:
-        run:  cns-wesbite
+        run:  cns-website
     spec:
       containers:
-      - name: cns-wesbite
-        image: docker.io/anaisurlichs/cns-website:0.0.9
+      - name: cns-website
+        image: ghcr.io/cloud-native-security/secret-repo:0.0.9
         ports:
           - containerPort: 80
         imagePullPolicy: Always
@@ -24,3 +24,5 @@ spec:
             cpu: 200m
         securityContext:
           allowPrivilegeEscalation: false
+      imagePullSecrets:
+      - name: dockerconfigjson-github-com
