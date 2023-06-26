@@ -12,19 +12,14 @@ jobs:
         uses: azure/setup-helm@v3
         with:
           version: v3.11.2
-      - 
-        name: Create k8s Kind Cluster
-        uses: helm/kind-action@v1.4.0
-        with:
-          path: ./kubeconfig
-      - 
-        uses: actions/checkout@v1
-      - 
-        uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ./kubeconfig
-        with:
-          args: get pods
+      - uses: actions/checkout@master
+      - uses: engineerd/setup-kind@v0.5.0
+      - name: Testing
+        run: |
+          kubectl cluster-info
+          kubectl get pods -n kube-system
+          echo "current-context:" $(kubectl config current-context)
+          echo "environment-kubeconfig:" ${KUBECONFIG}
       - 
         name: Run chart-testing (install)
         run: helm install website cns-website 
@@ -32,7 +27,7 @@ jobs:
         name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'config'
+          scan-type: 'k8s'
           hide-progress: false
           format: 'sarif'
           output: 'trivy-results.sarif'
