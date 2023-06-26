@@ -1,3 +1,4 @@
+import React  from 'react';
 import { useContext } from 'react'
 import { ThemeContext } from './contexts/theme'
 import Header from './components/Header/Header'

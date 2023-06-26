@@ -24,7 +24,7 @@ jobs:
         env:
           KUBE_CONFIG: ./kubeconfig
         with:
-          args: get pods --context kind-chart-testing
+          args: get pods
       - 
         name: Run chart-testing (install)
         run: helm install website cns-website 

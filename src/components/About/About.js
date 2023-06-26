@@ -1,3 +1,4 @@
+import React  from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import { about } from '../../portfolio'
@@ -23,30 +24,6 @@ const About = () => {
               Contact
             </span>
           </a>
-        )}
-
-        {social && (
-          <>
-            {social.github && (
-              <a
-                href={social.github}
-                aria-label='github'
-                className='link link--icon'
-              >
-                <GitHubIcon />
-              </a>
-            )}
-
-            {social.twitter && (
-              <a
-                href={social.twitter}
-                aria-label='twitter'
-                className='link link--icon'
-              >
-                <TwitterIcon />
-              </a>
-            )}
-          </>
         )}
       </div>
     </div>
