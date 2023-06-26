@@ -1,9 +1,0 @@
-{
-    "auths":
-    {
-        "ghcr.io":
-            {
-                "auth":"info"
-            }
-    }
-}

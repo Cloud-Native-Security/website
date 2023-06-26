@@ -1,0 +1,29 @@
+name: Create Cluster
+on:
+  push:
+    branches:
+    - main
+jobs:
+  create-cluster:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.11.2
+      - name: Create k8s Kind Cluster
+        uses: helm/kind-action@v1.4.0
+      - uses: actions/checkout@v1
+      - uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with:
+          args: get pods
+      - name: Run chart-testing (install)
+        run: helm install website cns-website 
+      - uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with:
+          args: get all -n default
+  
