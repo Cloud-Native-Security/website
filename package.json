@@ -23,7 +23,6 @@
     "build": "CI=false && react-scripts build --openssl-legacy-provider",
     "test": "react-scripts test --openssl-legacy-provider",
     "eject": "react-scripts eject --openssl-legacy-provider",
-    "lint": "eslint .",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "deploy": "gh-pages -d build"
   },

@@ -16,7 +16,7 @@ jobs:
       - uses: engineerd/setup-kind@v0.5.0
       - name: Testing
         with:
-          version: v0.20.0
+          version: 'v0.20.0'
         run: |
           kubectl cluster-info
           kubectl get pods -n kube-system
