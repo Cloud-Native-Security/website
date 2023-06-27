@@ -37,7 +37,8 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'k8s'
-          scan-ref: 'deployment' 
+          scan-ref: 'cluster' 
+          report: 'summary'
           namespace: 'default'
           hide-progress: false
           format: 'sarif'
