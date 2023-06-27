@@ -36,8 +36,8 @@ jobs:
         name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'k8s'
-          scan-ref: 'cluster' 
+          scan-type: 'fs'
+          scan-ref: './cns-website' 
           hide-progress: false
           format: 'sarif'
           output: 'trivy-results.sarif'
