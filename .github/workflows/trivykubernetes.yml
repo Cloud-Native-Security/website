@@ -37,6 +37,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
+          scanners: 'config'
           scan-ref: './cns-website' 
           hide-progress: false
           format: 'sarif'
