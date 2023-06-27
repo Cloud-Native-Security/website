@@ -19,7 +19,7 @@
     "yarn": "^1.22.19"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start --openssl-legacy-provider",
     "build": "CI=false && react-scripts --openssl-legacy-provider build",
     "test": "react-scripts --openssl-legacy-provide testr",
     "eject": "react-scripts eject --openssl-legacy-provider",

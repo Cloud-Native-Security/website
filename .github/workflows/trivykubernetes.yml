@@ -2,7 +2,7 @@ name: Create Cluster
 on:
   push:
     branches:
-    - main
+    - example
 jobs:
   create-cluster:
     runs-on: ubuntu-latest
