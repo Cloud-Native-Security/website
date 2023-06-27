@@ -10,15 +10,15 @@ COPY package*.json ./
 
 RUN ls
 
-ENV NODE_OPTIONS=--openssl-legacy-provider
+ENV NODE_OPTIONS="--openssl-legacy-provider"
  
 # Installs all node packages
-RUN yarn install
+RUN npm install
 
 COPY ./ ./
 
 # Installs all node packages
-RUN yarn build
+RUN npm run build
 
 # the base image 
 FROM nginx:1.24-alpine

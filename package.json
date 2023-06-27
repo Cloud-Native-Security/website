@@ -19,9 +19,9 @@
     "yarn": "^1.22.19"
   },
   "scripts": {
-    "start": "react-scripts start --openssl-legacy-provider",
-    "build": "CI=false && react-scripts build --openssl-legacy-provider",
-    "test": "react-scripts test --openssl-legacy-provider",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "CI=false && react-scripts --openssl-legacy-provider build",
+    "test": "react-scripts --openssl-legacy-provide testr",
     "eject": "react-scripts eject --openssl-legacy-provider",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "deploy": "gh-pages -d build"
