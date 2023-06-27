@@ -31,7 +31,7 @@ jobs:
         run: ls
       - 
         name: Run chart-testing (install)
-        run: helm install website ./website/cns-website 
+        run: helm install website ./cns-website 
       - 
         name: Run Trivy vulnerability scanner in IaC mode
         uses: aquasecurity/trivy-action@master
