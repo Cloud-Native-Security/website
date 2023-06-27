@@ -38,8 +38,6 @@ jobs:
         with:
           scan-type: 'k8s'
           scan-ref: 'cluster' 
-          report: 'summary'
-          namespace: 'default'
           hide-progress: false
           format: 'sarif'
           output: 'trivy-results.sarif'
