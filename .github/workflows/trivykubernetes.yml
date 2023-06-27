@@ -37,6 +37,8 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'k8s'
+          scan-ref: 'deployment' 
+          namespace: 'default'
           hide-progress: false
           format: 'sarif'
           output: 'trivy-results.sarif'

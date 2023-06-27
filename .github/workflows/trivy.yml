@@ -2,7 +2,7 @@ name: build-and-scan
 on:
   push:
     branches:
-      - main
+      - example
 jobs:
   docker:
     runs-on: ubuntu-latest
