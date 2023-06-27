@@ -2,7 +2,7 @@ name: build
 on:
   push:
     branches:
-    - example
+    - main
 jobs:
   fs:
     name: Build
