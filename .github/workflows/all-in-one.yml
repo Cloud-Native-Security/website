@@ -2,7 +2,7 @@ name: all-in-one
 on:
   push:
     branches:
-      - main
+      - example
 jobs:
   fs-scan:
     runs-on: ubuntu-latest
