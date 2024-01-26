@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cns-website
-        image: ghcr.io/cloud-native-security/secret-repo:0.0.9
+        image: docker.io/anaisurlichs/cns-website@sha256:c5911ac313e0be82a740bd726dc290e655800a9588424ba4e0558c705d1287fd
         ports:
           - containerPort: 80
         imagePullPolicy: Always

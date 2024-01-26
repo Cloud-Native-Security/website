@@ -5,9 +5,7 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "airbnb",
-    "prettier"
+    "plugin:react/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -16,7 +14,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react"],
   "rules": {
     "no-unused-vars": "warn",
     "no-console": "off",

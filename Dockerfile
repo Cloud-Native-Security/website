@@ -1,5 +1,5 @@
 # Pull official base image
-FROM node:19-alpine as build-deps
+FROM node:21-alpine as build-deps
 
 # A directory within the virtualized Docker environment
 # Becomes more relevant when using Docker Compose later
