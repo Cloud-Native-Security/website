@@ -56,7 +56,7 @@ jobs:
           exit-code: '0'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+          severity: 'CRITICAL,HIGH,MEDIUM'
       - 
         name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
