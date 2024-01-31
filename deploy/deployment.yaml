@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cns-website
-        image: docker.io/anaisurlichs/cns-website:0.2.1
+        image: docker.io/anaisurlichs/cns-website:0.2.2 
         ports:
           - containerPort: 80
         imagePullPolicy: Always
