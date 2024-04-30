@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cns-website
-        image: docker.io/anaisurlichs/cns-website:0.2.2 
+        image: docker.io/anaisurlichs/cns-website:0.2.4
         ports:
           - containerPort: 80
         imagePullPolicy: Always
@@ -24,5 +24,3 @@ spec:
             cpu: 200m
         securityContext:
           allowPrivilegeEscalation: false
-      imagePullSecrets:
-      - name: dockerconfigjson-github-com
